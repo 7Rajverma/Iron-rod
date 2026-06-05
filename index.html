@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Rod 3D Visualizer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 3D Viewport Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- UI Overlay HUD -->
+    <main class="hud-container">
+        <header class="hud-header">
+            <div class="badge">Industrial Simulation</div>
+            <h1>Iron Rod 3D</h1>
+            <p class="subtitle">Interactive Real-time Mesh Scaler</p>
+        </header>
+
+        <section class="control-panel">
+            <!-- Diameter / Width Slider -->
+            <div class="control-group">
+                <div class="control-label">
+                    <span>Diameter (Width)</span>
+                    <span class="value-readout" id="width-val">1.00 <span class="unit">m</span></span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" id="width-slider" min="0.1" max="2.0" step="0.05" value="1.0">
+                    <div class="slider-ticks">
+                        <span>0.1m</span>
+                        <span>1.0m</span>
+                        <span>2.0m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Height Slider -->
+            <div class="control-group">
+                <div class="control-label">
+                    <span>Height (Length)</span>
+                    <span class="value-readout" id="height-val">5.00 <span class="unit">m</span></span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" id="height-slider" min="1.0" max="10.0" step="0.1" value="5.0">
+                    <div class="slider-ticks">
+                        <span>1.0m</span>
+                        <span>5.5m</span>
+                        <span>10.0m</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="hud-footer">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-label">Material</span>
+                    <span class="stat-val">Forged Iron</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Volume</span>
+                    <span class="stat-val" id="volume-val">3.93 <span class="unit">m³</span></span>
+                </div>
+            </div>
+            <div class="help-text">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                </svg>
+                Left Click + Drag to rotate. Right Click to pan. Scroll to zoom.
+            </div>
+        </footer>
+    </main>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Main App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
